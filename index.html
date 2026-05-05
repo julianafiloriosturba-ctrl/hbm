@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Pousada Home Beach Mar - Guia do Hóspede - Porto das Dunas, Aquiraz CE">
+<title>Home Beach Mar — Guia do Hóspede</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#1A7BAF;--blue2:#2196C9;--teal:#0EACB0;--sun:#F5A623;--bg:#F8FBFF;--dark:#0D3A52;--muted:#6A8FA8;--border:rgba(26,123,175,0.15)}
+html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color:var(--dark)}
+.screen{display:none}
+.screen.on{display:flex;flex-direction:column;min-height:100vh}
+.hero-home{background:linear-gradient(170deg,#E8F6FF 0%,#C8EAF5 50%,#E8F6FF 100%);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero-home::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.15) 0%,transparent 70%)}
+.hero-home::after{content:'';position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(14,172,176,0.12) 0%,transparent 70%)}
+.logo-wrap{width:88px;height:88px;border-radius:50%;border:2.5px solid var(--sun);margin:0 auto 0.9rem;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1}
+.logo-wrap img{width:100%;height:100%;object-fit:cover}
+.loc-tag{font-size:0.65rem;letter-spacing:0.2em;color:var(--blue);font-weight:700;margin-bottom:1.4rem;position:relative;z-index:1}
+.loc-tag span{color:var(--sun);margin:0 4px}
+.hero-title{font-family:'Playfair Display',serif;line-height:1.05;margin-bottom:0.4rem;position:relative;z-index:1}
+.hero-title .t1{display:block;font-size:3.5rem;font-weight:700;color:var(--dark)}
+.hero-title .t2{display:block;font-size:3.5rem;font-weight:700;font-style:italic;color:var(--blue2)}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:var(--muted);margin:0.8rem 0 1.8rem;position:relative;z-index:1}
+.hero-div{width:44px;height:2px;background:linear-gradient(90deg,var(--sun),var(--teal));margin:0 auto 2rem;border-radius:2px}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5rem;padding:0 1rem 0.5rem;max-width:400px;margin:0 auto;width:100%}
+.menu-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.5rem;padding:0 1rem;max-width:400px;margin:0 auto 0.5rem;width:100%}
+.gbtn{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:0.85rem 0.4rem;cursor:pointer;font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:700;color:var(--dark);letter-spacing:0.03em;display:flex;flex-direction:column;align-items:center;gap:5px;transition:all 0.18s;text-align:center}
+.gbtn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.gbtn.accent{background:var(--sun);color:#fff;border-color:var(--sun)}
+.gbtn-sm{font-size:0.66rem;padding:0.7rem 0.3rem}
+.inner-head{background:linear-gradient(135deg,var(--blue) 0%,var(--teal) 100%);padding:1.2rem 1rem 1rem;display:flex;align-items:center;gap:0.7rem}
+.inner-head .back{background:rgba(255,255,255,0.2);border:none;border-radius:8px;color:#fff;font-size:1rem;cursor:pointer;padding:0.4rem 0.6rem;font-family:'Nunito',sans-serif;font-weight:700}
+.inner-head h2{color:#fff;font-size:1rem;font-weight:700;font-family:'Playfair Display',serif}
+.inner-body{padding:1rem;flex:1}
+.icard{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0.9rem 1rem;margin-bottom:0.65rem}
+.ict{font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem}
+.icb{font-size:0.845rem;color:var(--dark);line-height:1.65}
+.icb p{margin-bottom:0.3rem}
+.icb p:last-child{margin-bottom:0}
+.ir{display:flex;justify-content:space-between;align-items:baseline;padding:0.38rem 0;border-bottom:0.5px solid var(--border);font-size:0.845rem}
+.ir:last-child{border-bottom:none}
+.il{color:var(--muted)}
+.iv{font-weight:600;color:var(--dark);text-align:right;max-width:58%}
+.bdg{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:20px}
+.bg{background:#E8F5E9;color:#2E7D32}
+.ba{background:#FFF3E0;color:#E65100}
+.bb{background:#E3F2FD;color:#1565C0}
+.al{border-radius:10px;padding:0.65rem 0.85rem;font-size:0.81rem;line-height:1.5;margin-bottom:0.6rem;display:flex;gap:7px;align-items:flex-start}
+.aw{background:#FFF8E1;color:#795548;border-left:3px solid var(--sun)}
+.ai{background:#E3F2FD;color:#0D3A52;border-left:3px solid var(--blue)}
+.ad{background:#FFEBEE;color:#B71C1C;border-left:3px solid #E53935}
+.as{background:#E8F5E9;color:#1B5E20;border-left:3px solid #43A047}
+.ap-gold{background:#FFF8E1;color:#5D4037;border-left:3px solid var(--sun)}
+.aic{font-size:0.9rem;flex-shrink:0;margin-top:1px}
+.sl{font-size:0.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin:1rem 0 0.4rem}
+.tsw{display:flex;gap:0.45rem;margin-bottom:0.85rem}
+.tbtn{flex:1;padding:0.6rem 0.35rem;border-radius:10px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:0.76rem;font-weight:700;color:var(--muted);text-align:center;transition:all 0.18s}
+.tbtn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.step{display:flex;gap:0.65rem;margin-bottom:0.8rem;align-items:flex-start}
+.sn{min-width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:0.73rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.sc strong{display:block;font-size:0.845rem;font-weight:700;color:var(--dark);margin-bottom:1px}
+.sc span{font-size:0.81rem;color:var(--muted);line-height:1.5}
+.mbtn{display:flex;align-items:center;gap:7px;width:100%;padding:0.7rem;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:0.83rem;font-weight:700;text-decoration:none;justify-content:center;margin-top:0.4rem}
+.wabtn{display:flex;align-items:center;gap:7px;width:100%;padding:0.7rem;background:#25D366;color:#fff;border:none;border-radius:10px;font-size:0.83rem;font-weight:700;text-decoration:none;justify-content:center;margin-top:0.4rem}
+.vbtn{display:flex;align-items:center;gap:7px;width:100%;padding:0.65rem;background:#FFEBEE;color:#C62828;border:1px solid #FFCDD2;border-radius:10px;font-size:0.82rem;font-weight:700;text-decoration:none;justify-content:center;margin-top:0.4rem}
+.dbtn{display:flex;align-items:center;gap:7px;width:100%;padding:0.7rem;background:var(--sun);color:#fff;border:none;border-radius:10px;font-size:0.83rem;font-weight:700;text-decoration:none;justify-content:center;margin-top:0.4rem}
+.wfc{background:#F8FBFF;border:1.5px solid var(--border);border-radius:10px;padding:0.7rem;font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:700;text-align:center;color:var(--dark);letter-spacing:0.14em;margin:0.4rem 0}
+.inc{display:flex;flex-direction:column;gap:5px;margin-top:0.4rem}
+.ii{display:flex;align-items:flex-start;gap:6px;font-size:0.83rem}
+.ck{color:#43A047;flex-shrink:0;margin-top:1px}
+.cx{color:#E53935;flex-shrink:0;margin-top:1px}
+.tour-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0.75rem 0.95rem;margin-bottom:0.5rem;display:flex;justify-content:space-between;align-items:center;gap:0.5rem}
+.tour-name{font-size:0.875rem;font-weight:700;color:var(--dark)}
+.tour-km{font-size:0.75rem;color:var(--muted);margin-top:1px}
+.tour-price{font-size:1rem;font-weight:700;color:var(--teal);white-space:nowrap}
+.ben-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0.85rem 0.95rem;margin-bottom:0.6rem}
+.ben-head{display:flex;align-items:center;gap:8px;margin-bottom:0.4rem}
+.ben-icon{font-size:1.3rem;flex-shrink:0}
+.ben-name{font-size:0.875rem;font-weight:700;color:var(--dark)}
+.ben-detail{font-size:0.82rem;color:var(--muted);line-height:1.55;margin-bottom:0.3rem}
+.benbdg{display:inline-block;font-size:0.69rem;font-weight:700;padding:3px 9px;border-radius:20px;background:#E3F2FD;color:var(--blue)}
+.menu-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0 0.95rem;margin-bottom:0.6rem}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:0.4rem 0;border-bottom:0.5px solid var(--border);font-size:0.845rem}
+.menu-item:last-child{border-bottom:none}
+.menu-name{color:var(--dark);flex:1;padding-right:0.5rem}
+.menu-desc{font-size:0.74rem;color:var(--muted);display:block;margin-top:1px}
+.menu-price{font-weight:700;color:var(--teal);white-space:nowrap}
+.hgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.45rem;margin-bottom:0.65rem}
+.hcard{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0.75rem}
+.hbdg{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:0.35rem}
+.hba{background:#E3F2FD;color:var(--blue)}
+.hbb{background:#E0F7FA;color:#00796B}
+.ci-row{display:flex;gap:0.45rem;align-items:center;margin-bottom:0.45rem}
+.ci-row input{flex:1;padding:0.55rem 0.8rem;border:1.5px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.95rem;letter-spacing:0.07em;text-transform:uppercase;background:#F8FBFF;color:var(--dark)}
+.ubtn{padding:0.55rem 1rem;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:0.83rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.ap{border-radius:10px;padding:0.7rem 0.85rem}
+.apa{background:#E3F2FD;border:1px solid #90CAF9}
+.apb{background:#E0F7FA;border:1px solid #80DEEA}
+.aptitle{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.45rem;color:var(--blue)}
+.aprow{display:flex;justify-content:space-between;font-size:0.82rem;padding:0.28rem 0;border-bottom:0.5px solid rgba(26,123,175,0.15)}
+.aprow:last-child{border-bottom:none}
+.aplbl{color:var(--muted)}
+.apval{font-weight:700;color:var(--dark)}
+.aerr{background:#FFEBEE;border:1px solid #FFCDD2;border-radius:10px;padding:0.6rem;font-size:0.82rem;color:#C62828;text-align:center}
+.lkinfo{background:#F8FBFF;border-radius:10px;padding:0.55rem 0.8rem;font-size:0.79rem;color:var(--muted);margin-top:0.4rem;border:1px solid var(--border)}
+.checkout-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0.9rem 1rem;margin-bottom:0.6rem;display:flex;gap:0.75rem;align-items:flex-start}
+.chs-num{min-width:28px;height:28px;border-radius:50%;background:var(--sun);color:#fff;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chs-body strong{display:block;font-size:0.875rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.chs-body span{font-size:0.82rem;color:var(--muted);line-height:1.55}
+.stars{display:flex;justify-content:center;gap:6px;font-size:2rem;margin:0.75rem 0}
+.review-platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5rem;margin-bottom:0.65rem}
+.rp-card{border-radius:12px;padding:0.85rem 0.75rem;text-align:center;border:1.5px solid var(--border);background:#fff;cursor:pointer;text-decoration:none;display:block}
+.rp-card .rp-icon{font-size:1.6rem;margin-bottom:0.3rem}
+.rp-card .rp-name{font-size:0.75rem;font-weight:700;color:var(--dark)}
+.rp-card .rp-sub{font-size:0.68rem;color:var(--muted);margin-top:2px}
+.rp-booking{border-color:#003580;background:#F0F4FF}
+.rp-google{border-color:#EA4335;background:#FFF5F5}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div id="s-home" class="screen on">
+  <div class="hero-home">
+    <div class="logo-wrap">
+      <img src="https://s3-cdn.hotellinksolutions.com/hls/data/8585/website/general/lg/normal_a738215e-7fd0-481c-b9ee-06741551dedc---copia.png" alt="Home Beach Mar" onerror="this.style.display='none'">
+    </div>
+    <div class="loc-tag">✦ AQUIRAZ <span>·</span> CEARÁ <span>·</span> BRASIL ✦</div>
+    <div class="hero-title"><span class="t1">Home Beach</span><span class="t2">Mar</span></div>
+    <div class="hero-sub">Bem-vindo à sua estadia</div>
+    <div class="hero-div"></div>
+  </div>
+  <div style="padding:0 0 1.5rem">
+    <div class="menu-grid" style="margin-bottom:0.5rem">
+      <button class="gbtn accent" onclick="go('s-acesso')"><span style="font-size:1.3rem">🔐</span>MINHA SUÍTE</button>
+      <button class="gbtn" onclick="go('s-ci')"><span style="font-size:1.3rem">🗝️</span>CHECK-IN</button>
+      <button class="gbtn" onclick="go('s-hosp')"><span style="font-size:1.3rem">🏠</span>HOSPEDAGEM</button>
+      <button class="gbtn" onclick="go('s-reg')"><span style="font-size:1.3rem">📋</span>REGULAMENTO</button>
+    </div>
+    <div class="menu-grid-3">
+      <button class="gbtn gbtn-sm" onclick="go('s-rest')"><span style="font-size:1.1rem">🍕</span>RESTAURANTE</button>
+      <button class="gbtn gbtn-sm" onclick="go('s-ben')"><span style="font-size:1.1rem">🎁</span>BENEFÍCIOS</button>
+      <button class="gbtn gbtn-sm" onclick="go('s-tour')"><span style="font-size:1.1rem">🗺️</span>PASSEIOS</button>
+    </div>
+    <div class="menu-grid-3" style="margin-top:0.5rem">
+      <button class="gbtn gbtn-sm" onclick="go('s-checkout')"><span style="font-size:1.1rem">🚪</span>CHECKOUT</button>
+      <button class="gbtn gbtn-sm" onclick="go('s-aval')"><span style="font-size:1.1rem">⭐</span>AVALIAÇÃO</button>
+      <button class="gbtn gbtn-sm" onclick="go('s-ct')"><span style="font-size:1.1rem">📡</span>CONTATO</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECK-IN -->
+<div id="s-ci" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🗝️ Check-in & Acesso</h2></div>
+  <div class="inner-body">
+    <div class="icard"><div class="ict">⏰ Horários</div><div class="ir"><span class="il">Check-in</span><span class="iv">a partir das 15:00</span></div><div class="ir"><span class="il">Check-out</span><span class="iv">até 13:00</span></div><div class="ir"><span class="il">Piscina</span><span class="iv">08:30 → 21:00</span></div></div>
+    <div class="icard"><div class="ict">📶 Wi-Fi</div><div class="wfc">antonio1</div><p style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:4px">Conecte todos os seus dispositivos</p></div>
+    <div class="sl">As duas casas</div>
+    <div class="hgrid"><div class="hcard"><div class="hbdg hba">◀ Lado A — 447A</div><p style="font-size:0.79rem;color:var(--dark)">Suítes 1–4 · Lado esquerdo</p></div><div class="hcard"><div class="hbdg hbb">Lado B — 447B ▶</div><p style="font-size:0.79rem;color:var(--dark)">Suítes 5–8 · Lado direito</p></div></div>
+    <div class="sl">Acesso ao portão</div>
+    <ul style="list-style:none">
+      <li class="step"><div class="sn">1</div><div class="sc"><strong>Vá para o seu lado</strong><span>447A = esquerdo (suítes 1–4). 447B = direito (suítes 5–8). Portão e fechadura independentes.</span></div></li>
+      <li class="step"><div class="sn">2</div><div class="sc"><strong>Fechadura digital + código + #</strong><span>Aproxime a mão — os números aparecem. Digite o código do WhatsApp e pressione #.</span></div></li>
+      <li class="step"><div class="sn">3</div><div class="sc"><strong>Portão grande — manual</strong><span>Baixe o ferrolho, deslize o portão. Ao fechar, trave novamente.</span></div></li>
+      <li class="step"><div class="sn">4</div><div class="sc"><strong>Avise ao entrar</strong><span>Mande mensagem confirmando. Informe a placa do veículo.</span></div></li>
+    </ul>
+    <a class="vbtn" href="https://www.youtube.com/watch?v=YmlOAkqjygI&t=2s" target="_blank">▶ Ver vídeo: como usar a fechadura</a>
+    <div class="sl">Fechaduras das suítes</div>
+    <div class="icard"><div class="icb"><p><strong>🔒 Intelbras (suítes 3,4,6,7,8)</strong> — deslize para cima, digite o código e pressione ✓. Se errar, feche e reabra.</p><p style="margin-top:0.4rem">🗃️ <strong>Cofre manual (suítes 1,2,5)</strong> — gire o disco até o código.</p></div></div>
+    <div class="al ai"><span class="aic">💡</span><span>Painel das luzes: no corredor, à esquerda da entrada do seu lado.</span></div>
+  </div>
+</div>
+
+<!-- HOSPEDAGEM -->
+<div id="s-hosp" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🏠 Hospedagem</h2></div>
+  <div class="inner-body">
+    <div class="tsw"><button class="tbtn on" id="bs" onclick="showType('s')">🛏️ Suíte</button><button class="tbtn" id="bc" onclick="showType('c')">🏡 Casa completa</button></div>
+    <div id="is">
+      <div class="al as"><span class="aic">✅</span><span>Energia elétrica <strong>inclusa</strong>.</span></div>
+      <div class="icard"><div class="ict">📦 Incluso</div><div class="inc"><div class="ii"><span class="ck">✓</span><span>Toalhas e roupa de cama</span></div><div class="ii"><span class="ck">✓</span><span>Energia elétrica e Wi-Fi</span></div><div class="ii"><span class="cx">✗</span><span>Churrasqueira — R$100 (carvão não incluso)</span></div><div class="ii"><span class="cx">✗</span><span>Café da manhã — R$25/adulto</span></div></div></div>
+      <div class="icard"><div class="ict">🧹 Limpeza</div><div class="icb"><p>Somente em estadias acima de <strong>3 diárias</strong>.</p><p>A cada 3 diárias: 1 limpeza grátis com troca de roupa.</p><p>Limpeza extra (troca completa + toalha): <strong>R$20</strong>.</p><p>Solicite das 09:00–10:00 via WhatsApp. Execução: 10:00–17:00.</p></div></div>
+      <div class="icard"><div class="ict">🍳 Cozinha comum</div><div class="icb"><p>Identifique alimentos com <strong>nome e número da suíte</strong>.</p><p style="color:#C62828">Itens sem identificação serão descartados.</p></div></div>
+    </div>
+    <div id="ic" style="display:none">
+      <div class="al aw"><span class="aic">💡</span><span>Energia: <strong>R$1,20/kWh</strong>. Caução: <strong>R$500,00</strong>.</span></div>
+      <div class="icard"><div class="ict">💰 Custos</div><div class="ir"><span class="il">Mínimo de diárias</span><span class="iv"><span class="bdg bb">2 dias</span></span></div><div class="ir"><span class="il">Energia</span><span class="iv">R$1,20/kWh</span></div><div class="ir"><span class="il">Gás (até 7 diárias)</span><span class="iv"><span class="bdg bg">Incluso</span></span></div><div class="ir"><span class="il">Gás (acima de 7 dias)</span><span class="iv">R$10,00/dia</span></div><div class="ir"><span class="il">Caução</span><span class="iv">R$500,00</span></div><div class="ir"><span class="il">Troca roupa (>10 dias)</span><span class="iv">1× grátis</span></div></div>
+      <div class="icard"><div class="ict">📦 Incluso</div><div class="inc"><div class="ii"><span class="ck">✓</span><span>Toalhas, roupa de cama, Gás (até 7 dias)</span></div><div class="ii"><span class="ck">✓</span><span>Churrasqueira (carvão não incluso)</span></div><div class="ii"><span class="ck">✓</span><span>Piscineiro e faxina de saída</span></div><div class="ii"><span class="cx">✗</span><span>Energia — R$1,20/kWh</span></div><div class="ii"><span class="cx">✗</span><span>Gás +7 dias — R$10,00/dia extra</span></div></div></div>
+      <div class="icard"><div class="ict">🗑️ Lixo</div><div class="icb"><p>Local externo indicado. Alimentos que restarem após saída serão descartados.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- REGULAMENTO -->
+<div id="s-reg" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>📋 Regulamento</h2></div>
+  <div class="inner-body">
+    <div class="al ad"><span class="aic">🛑</span><span><strong>Multa de R$50,00</strong> por descuido em áreas comuns, pets sem limpeza ou visitantes não autorizados.</span></div>
+    <div class="icard"><div class="ict">🏊 Piscina</div><div class="icb"><p>08:30–21:00 · Crianças sempre acompanhadas de adulto.</p></div></div>
+    <div class="icard"><div class="ict">🐾 Pets</div><div class="icb"><p>Permitidos até <strong>10kg</strong>, no chão ou caminha própria. Não limpar necessidades: multa R$50.</p></div></div>
+    <div class="icard"><div class="ict">🔇 Som</div><div class="icb"><p>Música e sons altos <strong>proibidos em áreas comuns</strong>. Risco de multa ou cancelamento.</p></div></div>
+    <div class="icard"><div class="ict">🚫 Visitantes</div><div class="icb"><p>Proibido receber pessoas fora da reserva. Cancelamento + multa R$50.</p></div></div>
+    <div class="icard"><div class="ict">🔥 Churrasqueira</div><div class="icb"><p>Suítes: R$100 (reserva antecipada). Casa: inclusa. <strong>Carvão não incluso.</strong></p></div></div>
+    <div class="icard"><div class="ict">🧹 Áreas comuns</div><div class="icb"><p>Manter sempre limpas. Descuido sujeito a multa.</p></div></div>
+    <div class="icard"><div class="ict">☕ Café da manhã — Vila Itália</div><div class="icb"><p>📍 Rua Arraia, 452. 🕖 07:30–09:30. Avise com antecedência.</p><p>R$25/adulto · R$15 (7–10 anos) · Grátis (0–6 anos).</p></div></div>
+  </div>
+</div>
+
+<!-- ACESSO -->
+<div id="s-acesso" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🔐 Minha Suíte</h2></div>
+  <div class="inner-body">
+    <div class="icard">
+      <div class="ict">Código de acesso</div>
+      <div class="icb" style="color:var(--muted);margin-bottom:0.6rem">Digite o código recebido via WhatsApp para ver os dados da sua suíte.</div>
+      <div class="ci-row"><input type="text" id="codeInput" placeholder="ex: HBM01" maxlength="10" oninput="this.value=this.value.toUpperCase()"/><button class="ubtn" onclick="unlockCode()">Acessar</button></div>
+      <div id="ar"></div>
+    </div>
+    <div class="al ai"><span class="aic">ℹ️</span><span>Código temporário — válido durante sua estadia. Enviado pela recepção via WhatsApp.</span></div>
+  </div>
+</div>
+
+<!-- PASSEIOS -->
+<div id="s-tour" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🗺️ Passeios</h2></div>
+  <div class="inner-body">
+    <div class="al as"><span class="aic">🗺️</span><span>Descontos exclusivos para hóspedes. Consulte a recepção.</span></div>
+    <div class="tour-card"><div><div class="tour-name">Cumbuco</div><div class="tour-km">36 km</div></div><div class="tour-price">R$70</div></div>
+    <div class="tour-card"><div><div class="tour-name">Paracuru</div><div class="tour-km">90 km</div></div><div class="tour-price">R$100</div></div>
+    <div class="tour-card"><div><div class="tour-name">Lagoinha</div><div class="tour-km">110 km</div></div><div class="tour-price">R$100</div></div>
+    <div class="tour-card"><div><div class="tour-name">Fortim</div><div class="tour-km">130 km</div></div><div class="tour-price">R$100</div></div>
+    <div class="tour-card"><div><div class="tour-name">Canoa Quebrada</div><div class="tour-km">166 km</div></div><div class="tour-price">R$100</div></div>
+    <div class="tour-card"><div><div class="tour-name">Flecheiras + Flechaú</div><div class="tour-km">140 km</div></div><div class="tour-price">R$100–200</div></div>
+    <div class="tour-card"><div><div class="tour-name">3 Praias em 1 Dia</div><div class="tour-km">Fontes · Morro Branco · Canoa</div></div><div class="tour-price">R$140</div></div>
+    <div class="tour-card"><div><div class="tour-name">Icaraí de Amontada</div><div class="tour-km">220 km</div></div><div class="tour-price">R$250</div></div>
+    <div class="tour-card"><div><div class="tour-name">Jericoacoara</div><div class="tour-km">~300 km</div></div><div class="tour-price">R$300</div></div>
+    <a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Reservar passeio no WhatsApp</a>
+  </div>
+</div>
+
+<!-- BENEFÍCIOS -->
+<div id="s-ben" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🎁 Benefícios</h2></div>
+  <div class="inner-body">
+    <div class="ben-card"><div class="ben-head"><span class="ben-icon">🎢</span><span class="ben-name">Beach Park</span></div><div class="ben-detail">A apenas 700 metros da pousada! Um dos maiores parques aquáticos do mundo. Consulte a recepção antes de comprar — temos desconto exclusivo para hóspedes.</div><span class="benbdg">Desconto via recepção</span><a class="wabtn" href="https://wa.me/5585991727796" target="_blank" style="margin-top:0.5rem">💬 Solicitar desconto</a></div>
+    <div class="ben-card"><div class="ben-head"><span class="ben-icon">🌊</span><span class="ben-name">Parque Engenhoca</span></div><div class="ben-detail">Parque aquático com toboáguas para toda a família. Hóspedes têm desconto especial e água de coco inclusa via link de afiliado.</div><span class="benbdg">Desconto + água de coco inclusa</span><a class="mbtn" href="https://parqueengenhocaafiliados.com.br?eng_token/ref=66" target="_blank" style="margin-top:0.5rem">🌊 Acessar benefício</a></div>
+    <div class="ben-card"><div class="ben-head"><span class="ben-icon">⚡</span><span class="ben-name">Elektroid</span></div><div class="ben-detail">Loja de eletrônicos e acessórios no EcoMall (Supermercado Pinheiro). 5% de desconto + frete grátis em pedidos acima de R$70.</div><span class="benbdg">5% OFF + frete grátis acima R$70</span><a class="wabtn" href="https://wa.me/5585999008436" target="_blank" style="margin-top:0.5rem">💬 WhatsApp Elektroid</a><a class="mbtn" href="https://maps.app.goo.gl/Ya8QsppGReQxgqbt5" target="_blank" style="margin-top:0.4rem">📍 Ver localização</a></div>
+    <div class="ben-card"><div class="ben-head"><span class="ben-icon">💝</span><span class="ben-name">Decoração Romântica</span></div><div class="ben-detail">Surpreenda seu parceiro(a) com decoração especial no quarto — pétalas, velas, balões e muito romantismo. Perfeito para lua de mel, aniversário de casal ou uma noite inesquecível.</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin:0.4rem 0"><span class="bdg bg">R$60</span><span class="bdg bg">R$90</span><span class="bdg bg">R$110</span><span class="bdg bg">R$190</span></div><a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Solicitar via WhatsApp</a></div>
+    <div class="ben-card"><div class="ben-head"><span class="ben-icon">🎉</span><span class="ben-name">Kit Comemoração</span></div><div class="ben-detail">Celebre um aniversário ou chegada especial com kit montado no quarto — balões, faixa comemorativa, lembrancinhas e muito mais.</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin:0.4rem 0"><span class="bdg bg">R$99</span><span class="bdg bg">R$159</span></div><a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Solicitar via WhatsApp</a></div>
+  </div>
+</div>
+
+<!-- RESTAURANTE -->
+<div id="s-rest" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🍕 Restaurante</h2></div>
+  <div class="inner-body">
+    <div class="al aw"><span class="aic">🍕</span><span><strong>Trattoria Vila Itália</strong> · Rua Arraia, 452<br>Sex/Sáb: 17h–22h · Alta temp. (Jul/Dez/Jan): todos menos quarta</span></div>
+    <a class="dbtn" href="https://app.anota.ai/p/trattoria-vila-italia" target="_blank">🛵 Pedir no delivery</a>
+    <a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 WhatsApp do restaurante</a>
+    <div class="sl">Petiscos</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Batata Frita 250g</span><span class="menu-price">R$20</span></div><div class="menu-item"><span class="menu-name">Salgadinho Porção 12un<span class="menu-desc">Bolinha queijo, coxinha, croquete carne de sol</span></span><span class="menu-price">R$25</span></div></div>
+    <div class="sl">Massas — Troccolì</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Alho e Óleo</span><span class="menu-price">R$35</span></div><div class="menu-item"><span class="menu-name">Pomodoro</span><span class="menu-price">R$35</span></div><div class="menu-item"><span class="menu-name">Bolognese</span><span class="menu-price">R$39</span></div><div class="menu-item"><span class="menu-name">Carbonara</span><span class="menu-price">R$39</span></div><div class="menu-item"><span class="menu-name">Pesto</span><span class="menu-price">R$39</span></div></div>
+    <div class="sl">Lanches</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Cheese Burger + Batatinha</span><span class="menu-price">R$33</span></div><div class="menu-item"><span class="menu-name">Cheese Salada + Batatinha</span><span class="menu-price">R$35</span></div></div>
+    <div class="sl">Porções</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Arroz Branco 150g</span><span class="menu-price">R$12</span></div><div class="menu-item"><span class="menu-name">Baião 200g</span><span class="menu-price">R$20</span></div></div>
+    <div class="sl">Para compartilhar</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Lasanha Bolonhesa<span class="menu-desc">Serve 2</span></span><span class="menu-price">R$99</span></div><div class="menu-item"><span class="menu-name">Picanha 400g<span class="menu-desc">Serve 3 · baião ou arroz, batata, salada</span></span><span class="menu-price">R$119</span></div></div>
+    <div class="sl">Pizzas salgadas 35cm</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Mozzarela</span><span class="menu-price">R$45</span></div><div class="menu-item"><span class="menu-name">Bufala</span><span class="menu-price">R$55</span></div><div class="menu-item"><span class="menu-name">Calabresa</span><span class="menu-price">R$55</span></div><div class="menu-item"><span class="menu-name">Atum e Cebola</span><span class="menu-price">R$55</span></div><div class="menu-item"><span class="menu-name">Frango Cream Cheese</span><span class="menu-price">R$55</span></div><div class="menu-item"><span class="menu-name">Portuguesa</span><span class="menu-price">R$55</span></div><div class="menu-item"><span class="menu-name">Peperoni</span><span class="menu-price">R$59</span></div><div class="menu-item"><span class="menu-name">4 Formaggi</span><span class="menu-price">R$59</span></div><div class="menu-item"><span class="menu-name">Parma</span><span class="menu-price">R$65</span></div><div class="menu-item"><span class="menu-name">Nordestina</span><span class="menu-price">R$65</span></div><div class="menu-item"><span class="menu-name">Patatosa</span><span class="menu-price">R$65</span></div><div class="menu-item"><span class="menu-name">Explosiva</span><span class="menu-price">R$65</span></div></div>
+    <div class="sl">Pizzas doces 35cm</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Crema de Avelã</span><span class="menu-price">R$45</span></div><div class="menu-item"><span class="menu-name">Cartola<span class="menu-desc">Banana, canela, leite condensado</span></span><span class="menu-price">R$45</span></div></div>
+    <div class="sl">Bebidas</div><div class="menu-wrap"><div class="menu-item"><span class="menu-name">Água sem/com gás</span><span class="menu-price">R$5</span></div><div class="menu-item"><span class="menu-name">Refrigerante lata</span><span class="menu-price">R$8</span></div><div class="menu-item"><span class="menu-name">Refrigerante 1L</span><span class="menu-price">R$14</span></div><div class="menu-item"><span class="menu-name">Schweeps Citrus</span><span class="menu-price">R$8</span></div><div class="menu-item"><span class="menu-name">Suco Polpa 300ml</span><span class="menu-price">R$10</span></div><div class="menu-item"><span class="menu-name">Suco Polpa jarra 900ml</span><span class="menu-price">R$18</span></div><div class="menu-item"><span class="menu-name">Heineken Lata</span><span class="menu-price">R$12</span></div></div>
+    <div class="al aw" style="margin-top:0.5rem"><span class="aic">ℹ️</span><span>Ingrediente adicional: <strong>R$5</strong> · Taxa de serviço: <strong>10%</strong></span></div>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div id="s-checkout" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>🚪 Checkout</h2></div>
+  <div class="inner-body">
+    <div class="al ai"><span class="aic">⏰</span><span>Check-out até as <strong>13:00</strong>. Siga os passos abaixo antes de sair.</span></div>
+    <div class="checkout-step"><div class="chs-num">1</div><div class="chs-body"><strong>Avise a recepção</strong><span>Envie mensagem no WhatsApp informando que está saindo e que a suíte está liberada.</span></div></div>
+    <div class="checkout-step"><div class="chs-num">2</div><div class="chs-body"><strong>Deixe a suíte organizada</strong><span>Feche janelas, desligue o ar-condicionado, luzes e TV. Não precisa fazer a cama.</span></div></div>
+    <div class="checkout-step"><div class="chs-num">3</div><div class="chs-body"><strong>Retire todos os pertences</strong><span>Verifique o banheiro, armário, gavetas e o cofre. Não esqueça nada!</span></div></div>
+    <div class="checkout-step"><div class="chs-num">4</div><div class="chs-body"><strong>Entregue a chave (se aplicável)</strong><span>Deixe a chave no quarto ou entregue conforme orientado pela recepção.</span></div></div>
+    <div class="checkout-step"><div class="chs-num">5</div><div class="chs-body"><strong>Deixe as áreas comuns limpas</strong><span>Retire alimentos da geladeira. Descarte o lixo no local externo.</span></div></div>
+    <div class="al ap-gold"><span class="aic">💬</span><span>Mensagem sugerida para a recepção:<br><strong>"Olá! Já estou saindo e a suíte [número] está liberada. Obrigado pela estadia!"</strong></span></div>
+    <a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Avisar a recepção agora</a>
+    <div class="al as" style="margin-top:0.75rem"><span class="aic">⭐</span><span>Gostou? Deixe uma avaliação — acesse <strong>Avaliação</strong> no menu!</span></div>
+  </div>
+</div>
+
+<!-- AVALIAÇÃO -->
+<div id="s-aval" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>⭐ Avaliação</h2></div>
+  <div class="inner-body">
+    <div style="text-align:center;padding:1rem 0 0.5rem">
+      <div style="font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:0.3rem">Esperamos que sua estadia tenha sido incrível! 🌴</div>
+      <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem">Sua opinião é muito importante para nós e ajuda outros viajantes a nos escolherem.</div>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="al ai"><span class="aic">💡</span><span>Uma avaliação com 5 estrelas leva menos de 2 minutos e faz enorme diferença para nossa pousada. Obrigado! 🙏</span></div>
+    <div class="sl">Onde avaliar</div>
+    <div class="review-platforms">
+      <a class="rp-card rp-booking" href="https://www.booking.com" target="_blank"><div class="rp-icon">🏨</div><div class="rp-name">Booking.com</div><div class="rp-sub">Minhas Reservas → Avaliações</div></a>
+      <a class="rp-card rp-google" href="https://www.google.com/maps/place/Pousada+Home+Beach+Mar/@-3.840298,-38.3961559,17z" target="_blank"><div class="rp-icon">🗺️</div><div class="rp-name">Google Maps</div><div class="rp-sub">Clique em "Escrever avaliação"</div></a>
+    </div>
+    <div class="icard"><div class="ict">📝 Como avaliar no Booking</div><div class="icb"><p>1. Acesse o app ou site do Booking.com</p><p>2. Vá em <strong>Minha Conta → Minhas Reservas</strong></p><p>3. Localize a estadia na <strong>Home Beach Mar</strong></p><p>4. Clique em <strong>"Escrever avaliação"</strong></p><p>5. Dê 5 estrelas e compartilhe sua experiência ✨</p></div></div>
+    <div class="icard"><div class="ict">🗺️ Como avaliar no Google</div><div class="icb"><p>1. Toque no botão abaixo para abrir nosso perfil</p><p>2. Role até <strong>"Avaliações"</strong> e clique em <strong>"Escrever avaliação"</strong></p><p>3. Selecione 5 estrelas e conte sua experiência 🌴</p></div></div>
+    <a class="mbtn" href="https://www.google.com/maps/place/Pousada+Home+Beach+Mar/@-3.840298,-38.3961559,17z" target="_blank">🗺️ Avaliar no Google Maps</a>
+    <div class="al as" style="margin-top:0.65rem"><span class="aic">🙏</span><span>Obrigado pela visita! Esperamos te ver de novo na <strong>Home Beach Mar</strong>. Volte sempre! 🌊</span></div>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<div id="s-ct" class="screen">
+  <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>📡 Contato</h2></div>
+  <div class="inner-body">
+    <div class="sl">Wi-Fi</div>
+    <div class="icard"><div class="ict">📶 Senha da rede</div><div class="wfc">antonio1</div></div>
+    <div class="sl">Endereço</div>
+    <div class="icard"><div class="icb"><p>Rua Francisco Bezerra Vasconcelos, 115</p><p>Porto das Dunas – Aquiraz, CE</p><p style="margin-top:4px;color:var(--muted);font-size:0.79rem">447A = esquerdo (suítes 1–4) · 447B = direito (suítes 5–8)</p></div><a class="mbtn" href="https://www.google.com/maps/place/Pousada+Home+Beach+Mar/@-3.840298,-38.3961559,17z" target="_blank">📍 Abrir no Google Maps</a></div>
+    <div class="sl">Recepção online</div>
+    <div class="icard"><div class="icb"><p>Atendimento via WhatsApp 24h. Problemas com o portão? Ligue direto. No checkout, avise antes de sair.</p></div><a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 WhatsApp da recepção</a></div>
+  </div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on')});
+  document.getElementById(id).classList.add('on');
+  window.scrollTo(0,0);
+}
+function showType(t){
+  document.getElementById('is').style.display=t==='s'?'block':'none';
+  document.getElementById('ic').style.display=t==='c'?'block':'none';
+  document.getElementById('bs').classList.toggle('on',t==='s');
+  document.getElementById('bc').classList.toggle('on',t==='c');
+}
+var S={
+  'HBM01':{lado:'A',n:'1',cod:'501',tipo:'cofre manual'},
+  'HBM02':{lado:'A',n:'2',cod:'602',tipo:'cofre manual'},
+  'HBM03':{lado:'A',n:'3',cod:'1103',tipo:'Intelbras'},
+  'HBM04':{lado:'A',n:'4',cod:'1104',tipo:'Intelbras'},
+  'HBM05':{lado:'B',n:'5',cod:'0000',tipo:'cofre manual'},
+  'HBM06':{lado:'B',n:'6',cod:'2206',tipo:'Intelbras'},
+  'HBM07':{lado:'B',n:'7',cod:'2207',tipo:'Intelbras'},
+  'HBM08':{lado:'B',n:'8',cod:'2208',tipo:'Intelbras'}
+};
+function row(d){return '<div class="aprow"><span class="aplbl">Suíte '+d.n+' ('+d.tipo+')</span><span class="apval">'+d.cod+'</span></div>';}
+function unlockCode(){
+  var c=document.getElementById('codeInput').value.trim().toUpperCase();
+  var r=document.getElementById('ar');
+  if(!c){r.innerHTML='';return;}
+  if(c==='MASTER01'){r.innerHTML='<div class="ap apa" style="margin-top:0.4rem"><div class="aptitle">Casa A — 447A · Suítes 1–4</div>'+['HBM01','HBM02','HBM03','HBM04'].map(function(k){return row(S[k])}).join('')+'</div>';return;}
+  if(c==='MASTER02'){r.innerHTML='<div class="ap apb" style="margin-top:0.4rem"><div class="aptitle">Casa B — 447B · Suítes 5–8</div>'+['HBM05','HBM06','HBM07','HBM08'].map(function(k){return row(S[k])}).join('')+'</div>';return;}
+  var d=S[c];
+  if(!d){r.innerHTML='<div class="aerr" style="margin-top:0.4rem">Código inválido. Verifique com a recepção.</div>';return;}
+  var cls=d.lado==='A'?'apa':'apb';
+  var lt=d.lado==='A'?'Esquerdo 447A':'Direito 447B';
+  var lk=d.tipo==='cofre manual'?'<div class="lkinfo">🗃️ Cofre manual: gire o disco até o código.</div>':'<div class="lkinfo">🔒 Intelbras: deslize para cima, digite e pressione ✓. Se errar, feche e reabra.</div>';
+  r.innerHTML='<div class="ap '+cls+'" style="margin-top:0.4rem"><div class="aptitle">✅ Suíte '+d.n+' — Casa '+d.lado+' ('+lt+')</div><div class="aprow"><span class="aplbl">Código</span><span class="apval">'+d.cod+'</span></div><div class="aprow"><span class="aplbl">Fechadura</span><span class="apval">'+d.tipo+'</span></div></div>'+lk;
+}
+document.getElementById('codeInput').addEventListener('keydown',function(e){if(e.key==='Enter')unlockCode();});
+</script>
+</body>
+</html>
