@@ -105,7 +105,7 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
 .aplbl{color:var(--muted)}
 .apval{font-weight:700;color:var(--dark)}
 .aerr{background:#FFEBEE;border:1px solid #FFCDD2;border-radius:10px;padding:0.6rem;font-size:0.82rem;color:#C62828;text-align:center}
-.lkinfo{background:#F8FBFF;border-radius:10px;padding:0.55rem 0.8rem;font-size:0.79rem;color:var(--muted);margin-top:0.4rem;border:1px solid var(--border)}
+.lkinfo{background:#F8FBFF;border-radius:10px;padding:0.55rem 0.8rem;font-size:0.79rem;color:var(--muted);margin-top:0.4rem;border:1px solid var(--border);line-height:1.55}
 .checkout-step{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0.9rem 1rem;margin-bottom:0.6rem;display:flex;gap:0.75rem;align-items:flex-start}
 .chs-num{min-width:28px;height:28px;border-radius:50%;background:var(--sun);color:#fff;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .chs-body strong{display:block;font-size:0.875rem;font-weight:700;color:var(--dark);margin-bottom:3px}
@@ -118,6 +118,9 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
 .rp-card .rp-sub{font-size:0.68rem;color:var(--muted);margin-top:2px}
 .rp-booking{border-color:#003580;background:#F0F4FF}
 .rp-google{border-color:#EA4335;background:#FFF5F5}
+.feedback-box{background:#FFF8E1;border:1.5px solid #FFD54F;border-radius:14px;padding:1rem;margin-bottom:0.65rem}
+.feedback-box .fb-title{font-size:0.85rem;font-weight:700;color:#5D4037;margin-bottom:0.4rem}
+.feedback-box .fb-body{font-size:0.82rem;color:#795548;line-height:1.65}
 </style>
 </head>
 <body>
@@ -170,7 +173,7 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
     </ul>
     <a class="vbtn" href="https://www.youtube.com/watch?v=YmlOAkqjygI&t=2s" target="_blank">▶ Ver vídeo: como usar a fechadura</a>
     <div class="sl">Fechaduras das suítes</div>
-    <div class="icard"><div class="icb"><p><strong>🔒 Intelbras (suítes 3,4,6,7,8)</strong> — deslize para cima, digite o código e pressione ✓. Se errar, feche e reabra.</p><p style="margin-top:0.4rem">🗃️ <strong>Cofre manual (suítes 1,2,5)</strong> — gire o disco até o código.</p></div></div>
+    <div class="icard"><div class="icb"><p><strong>🔒 Intelbras (suítes 3,4,6,7,8)</strong> — deslize para cima, digite o código e pressione ✓. Se errar, feche e reabra.</p><p style="margin-top:0.4rem">🗃️ <strong>Cofre manual (suítes 1,2,5)</strong> — gire o disco até o código. <span style="color:#C62828;font-weight:700">A chave deve permanecer sempre dentro do cofre</span> — durante toda a estadia e na saída. Perda da chave: R$50,00 (chaveiro).</p></div></div>
     <div class="al ai"><span class="aic">💡</span><span>Painel das luzes: no corredor, à esquerda da entrada do seu lado.</span></div>
   </div>
 </div>
@@ -184,12 +187,14 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
       <div class="al as"><span class="aic">✅</span><span>Energia elétrica <strong>inclusa</strong>.</span></div>
       <div class="icard"><div class="ict">📦 Incluso</div><div class="inc"><div class="ii"><span class="ck">✓</span><span>Toalhas e roupa de cama</span></div><div class="ii"><span class="ck">✓</span><span>Energia elétrica e Wi-Fi</span></div><div class="ii"><span class="cx">✗</span><span>Churrasqueira — R$100 (carvão não incluso)</span></div><div class="ii"><span class="cx">✗</span><span>Café da manhã — R$25/adulto</span></div></div></div>
       <div class="icard"><div class="ict">🧹 Limpeza</div><div class="icb"><p>Somente em estadias acima de <strong>3 diárias</strong>.</p><p>A cada 3 diárias: 1 limpeza grátis com troca de roupa.</p><p>Limpeza extra (troca completa + toalha): <strong>R$20</strong>.</p><p>Solicite das 09:00–10:00 via WhatsApp. Execução: 10:00–17:00.</p></div></div>
+      <div class="icard"><div class="ict">🛏️ Enxoval — importante</div><div class="icb"><p>Toalhas, lençóis e fronhas danificados, manchados ou extraviados serão <strong>cobrados do hóspede</strong>.</p><p style="color:#C62828;margin-top:0.3rem">Por favor, cuide bem do enxoval. Danos serão descontados na saída.</p></div></div>
       <div class="icard"><div class="ict">🍳 Cozinha comum</div><div class="icb"><p>Identifique alimentos com <strong>nome e número da suíte</strong>.</p><p style="color:#C62828">Itens sem identificação serão descartados.</p></div></div>
     </div>
     <div id="ic" style="display:none">
       <div class="al aw"><span class="aic">💡</span><span>Energia: <strong>R$1,20/kWh</strong>. Caução: <strong>R$500,00</strong>.</span></div>
       <div class="icard"><div class="ict">💰 Custos</div><div class="ir"><span class="il">Mínimo de diárias</span><span class="iv"><span class="bdg bb">2 dias</span></span></div><div class="ir"><span class="il">Energia</span><span class="iv">R$1,20/kWh</span></div><div class="ir"><span class="il">Gás (até 7 diárias)</span><span class="iv"><span class="bdg bg">Incluso</span></span></div><div class="ir"><span class="il">Gás (acima de 7 dias)</span><span class="iv">R$10,00/dia</span></div><div class="ir"><span class="il">Caução</span><span class="iv">R$500,00</span></div><div class="ir"><span class="il">Troca roupa (>10 dias)</span><span class="iv">1× grátis</span></div></div>
       <div class="icard"><div class="ict">📦 Incluso</div><div class="inc"><div class="ii"><span class="ck">✓</span><span>Toalhas, roupa de cama, Gás (até 7 dias)</span></div><div class="ii"><span class="ck">✓</span><span>Churrasqueira (carvão não incluso)</span></div><div class="ii"><span class="ck">✓</span><span>Piscineiro e faxina de saída</span></div><div class="ii"><span class="cx">✗</span><span>Energia — R$1,20/kWh</span></div><div class="ii"><span class="cx">✗</span><span>Gás +7 dias — R$10,00/dia extra</span></div></div></div>
+      <div class="icard"><div class="ict">🛏️ Enxoval — importante</div><div class="icb"><p>Toalhas, lençóis e fronhas danificados, manchados ou extraviados serão <strong>cobrados do hóspede</strong>.</p><p style="color:#C62828;margin-top:0.3rem">Por favor, cuide bem do enxoval. Danos serão descontados na saída.</p></div></div>
       <div class="icard"><div class="ict">🗑️ Lixo</div><div class="icb"><p>Local externo indicado. Alimentos que restarem após saída serão descartados.</p></div></div>
     </div>
   </div>
@@ -200,6 +205,8 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
   <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>📋 Regulamento</h2></div>
   <div class="inner-body">
     <div class="al ad"><span class="aic">🛑</span><span><strong>Multa de R$50,00</strong> por descuido em áreas comuns, pets sem limpeza ou visitantes não autorizados.</span></div>
+    <div class="icard"><div class="ict">🔑 Chave do quarto (cofre manual)</div><div class="icb"><p>Suítes 1, 2 e 5 possuem cofre manual com chave.</p><p>A chave deve permanecer <strong>sempre dentro do cofre</strong> — durante toda a estadia e inclusive na saída.</p><p style="color:#C62828;margin-top:0.3rem">Perda da chave: taxa de <strong>R$50,00</strong> referente ao chaveiro.</p></div></div>
+    <div class="icard"><div class="ict">🛏️ Danos em enxoval</div><div class="icb"><p>Toalhas, lençóis e fronhas danificados, manchados ou extraviados serão <strong>cobrados do hóspede</strong> ao final da estadia.</p></div></div>
     <div class="icard"><div class="ict">🏊 Piscina</div><div class="icb"><p>08:30–21:00 · Crianças sempre acompanhadas de adulto.</p></div></div>
     <div class="icard"><div class="ict">🐾 Pets</div><div class="icb"><p>Permitidos até <strong>10kg</strong>, no chão ou caminha própria. Não limpar necessidades: multa R$50.</p></div></div>
     <div class="icard"><div class="ict">🔇 Som</div><div class="icb"><p>Música e sons altos <strong>proibidos em áreas comuns</strong>. Risco de multa ou cancelamento.</p></div></div>
@@ -280,8 +287,8 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
     <div class="al ai"><span class="aic">⏰</span><span>Check-out até as <strong>13:00</strong>. Siga os passos abaixo antes de sair.</span></div>
     <div class="checkout-step"><div class="chs-num">1</div><div class="chs-body"><strong>Avise a recepção</strong><span>Envie mensagem no WhatsApp informando que está saindo e que a suíte está liberada.</span></div></div>
     <div class="checkout-step"><div class="chs-num">2</div><div class="chs-body"><strong>Deixe a suíte organizada</strong><span>Feche janelas, desligue o ar-condicionado, luzes e TV. Não precisa fazer a cama.</span></div></div>
-    <div class="checkout-step"><div class="chs-num">3</div><div class="chs-body"><strong>Retire todos os pertences</strong><span>Verifique o banheiro, armário, gavetas e o cofre. Não esqueça nada!</span></div></div>
-    <div class="checkout-step"><div class="chs-num">4</div><div class="chs-body"><strong>Entregue a chave (se aplicável)</strong><span>Deixe a chave no quarto ou entregue conforme orientado pela recepção.</span></div></div>
+    <div class="checkout-step"><div class="chs-num">3</div><div class="chs-body"><strong>Retire todos os pertences</strong><span>Verifique o banheiro, armário e gavetas. Não esqueça nada!</span></div></div>
+    <div class="checkout-step"><div class="chs-num">4</div><div class="chs-body"><strong>Devolva a chave ao cofre (suítes 1, 2 e 5)</strong><span>A chave deve permanecer sempre dentro do cofre — inclusive na saída. <strong style="color:#C62828">Perda da chave: R$50,00 (chaveiro).</strong></span></div></div>
     <div class="checkout-step"><div class="chs-num">5</div><div class="chs-body"><strong>Deixe as áreas comuns limpas</strong><span>Retire alimentos da geladeira. Descarte o lixo no local externo.</span></div></div>
     <div class="al ap-gold"><span class="aic">💬</span><span>Mensagem sugerida para a recepção:<br><strong>"Olá! Já estou saindo e a suíte [número] está liberada. Obrigado pela estadia!"</strong></span></div>
     <a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Avisar a recepção agora</a>
@@ -293,20 +300,34 @@ html,body{height:100%;background:var(--bg);font-family:'Nunito',sans-serif;color
 <div id="s-aval" class="screen">
   <div class="inner-head"><button class="back" onclick="go('s-home')">← Voltar</button><h2>⭐ Avaliação</h2></div>
   <div class="inner-body">
-    <div style="text-align:center;padding:1rem 0 0.5rem">
-      <div style="font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:0.3rem">Esperamos que sua estadia tenha sido incrível! 🌴</div>
-      <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem">Sua opinião é muito importante para nós e ajuda outros viajantes a nos escolherem.</div>
+
+    <div class="feedback-box">
+      <div class="fb-title">💛 Teve algum problema ou sugestão?</div>
+      <div class="fb-body">
+        <p>Se algo não saiu como esperado, por favor <strong>nos avise pelo WhatsApp antes de avaliar</strong>. Isso nos ajuda a melhorar e a resolver para os próximos hóspedes.</p>
+        <p style="margin-top:0.45rem"><strong>Não ignoramos nenhuma mensagem!</strong> Uma avaliação abaixo de 9 tem um peso muito alto nas plataformas e prejudica toda a equipe, reduzindo reservas futuras. Queremos ter a chance de melhorar. 🙏</p>
+      </div>
+    </div>
+    <a class="wabtn" href="https://wa.me/5585991727796" target="_blank">💬 Falar com a recepção no WhatsApp</a>
+
+    <div style="text-align:center;padding:1.2rem 0 0.5rem">
+      <div style="font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:0.3rem">Gostou? Deixe sua avaliação! 🌴</div>
+      <div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem">Sua opinião ajuda outros viajantes a nos escolherem e faz enorme diferença para a equipe.</div>
       <div class="stars">⭐⭐⭐⭐⭐</div>
     </div>
-    <div class="al ai"><span class="aic">💡</span><span>Uma avaliação com 5 estrelas leva menos de 2 minutos e faz enorme diferença para nossa pousada. Obrigado! 🙏</span></div>
+
+    <div class="al ai"><span class="aic">💡</span><span>Uma avaliação com 5 estrelas leva menos de 2 minutos. Obrigado! 🙏</span></div>
+
     <div class="sl">Onde avaliar</div>
     <div class="review-platforms">
       <a class="rp-card rp-booking" href="https://www.booking.com" target="_blank"><div class="rp-icon">🏨</div><div class="rp-name">Booking.com</div><div class="rp-sub">Minhas Reservas → Avaliações</div></a>
       <a class="rp-card rp-google" href="https://www.google.com/maps/place/Pousada+Home+Beach+Mar/@-3.840298,-38.3961559,17z" target="_blank"><div class="rp-icon">🗺️</div><div class="rp-name">Google Maps</div><div class="rp-sub">Clique em "Escrever avaliação"</div></a>
     </div>
-    <div class="icard"><div class="ict">📝 Como avaliar no Booking</div><div class="icb"><p>1. Acesse o app ou site do Booking.com</p><p>2. Vá em <strong>Minha Conta → Minhas Reservas</strong></p><p>3. Localize a estadia na <strong>Home Beach Mar</strong></p><p>4. Clique em <strong>"Escrever avaliação"</strong></p><p>5. Dê 5 estrelas e compartilhe sua experiência ✨</p></div></div>
+
+    <div class="icard"><div class="ict">📝 Como avaliar no Booking</div><div class="icb"><p>1. Acesse o app ou site do Booking.com</p><p>2. Vá em <strong>Minha Conta → Minhas Reservas</strong></p><p>3. Localize a estadia na <strong>Home Beach Mar</strong></p><p>4. Clique em <strong>"Escrever avaliação"</strong></p><p>5. Dê nota máxima e compartilhe sua experiência ✨</p></div></div>
     <div class="icard"><div class="ict">🗺️ Como avaliar no Google</div><div class="icb"><p>1. Toque no botão abaixo para abrir nosso perfil</p><p>2. Role até <strong>"Avaliações"</strong> e clique em <strong>"Escrever avaliação"</strong></p><p>3. Selecione 5 estrelas e conte sua experiência 🌴</p></div></div>
     <a class="mbtn" href="https://www.google.com/maps/place/Pousada+Home+Beach+Mar/@-3.840298,-38.3961559,17z" target="_blank">🗺️ Avaliar no Google Maps</a>
+
     <div class="al as" style="margin-top:0.65rem"><span class="aic">🙏</span><span>Obrigado pela visita! Esperamos te ver de novo na <strong>Home Beach Mar</strong>. Volte sempre! 🌊</span></div>
   </div>
 </div>
@@ -357,7 +378,9 @@ function unlockCode(){
   if(!d){r.innerHTML='<div class="aerr" style="margin-top:0.4rem">Código inválido. Verifique com a recepção.</div>';return;}
   var cls=d.lado==='A'?'apa':'apb';
   var lt=d.lado==='A'?'Esquerdo 447A':'Direito 447B';
-  var lk=d.tipo==='cofre manual'?'<div class="lkinfo">🗃️ Cofre manual: gire o disco até o código.</div>':'<div class="lkinfo">🔒 Intelbras: deslize para cima, digite e pressione ✓. Se errar, feche e reabra.</div>';
+  var lk=d.tipo==='cofre manual'
+    ?'<div class="lkinfo">🗃️ Cofre manual: gire o disco até o código.<br>⚠️ A chave deve permanecer sempre dentro do cofre — inclusive na saída. Perda da chave: R$50,00 (chaveiro).</div>'
+    :'<div class="lkinfo">🔒 Intelbras: deslize para cima, digite e pressione ✓. Se errar, feche e reabra.</div>';
   r.innerHTML='<div class="ap '+cls+'" style="margin-top:0.4rem"><div class="aptitle">✅ Suíte '+d.n+' — Casa '+d.lado+' ('+lt+')</div><div class="aprow"><span class="aplbl">Código</span><span class="apval">'+d.cod+'</span></div><div class="aprow"><span class="aplbl">Fechadura</span><span class="apval">'+d.tipo+'</span></div></div>'+lk;
 }
 document.getElementById('codeInput').addEventListener('keydown',function(e){if(e.key==='Enter')unlockCode();});
